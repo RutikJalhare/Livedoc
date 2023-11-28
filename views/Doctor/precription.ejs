@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- edit-schedule24:07-->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="shortcut icon" type="image/x-icon" href="/doctorcss/assets/img/favicon.ico">
+    <title>Preclinic - Medical & Hospital - Bootstrap 4 Admin Template</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" type="text/css" href="/doctorcss/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/doctorcss/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/doctorcss/assets/css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="/doctorcss/assets/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="/doctorcss/assets/css/style.css">
+    <!--[if lt IE 9]>
+		<script src="/doctorcss/assets/js/html5shiv.min.js"></script>
+		<script src="/doctorcss/assets/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <div class="header">
+            <div class="header-left">
+                <a href="index-2" class="logo">
+                    <img src="/doctorcss/assets/img/logo.png" width="35" height="35" alt=""> <span>Preclinic</span>
+                </a>
+            </div>
+            <a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
+            <ul class="nav user-menu float-right">
+                <li class="nav-item dropdown d-none d-sm-block">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><i class="fa fa-bell-o"></i>
+                        <span class="badge badge-pill bg-danger float-right">3</span></a>
+                    <div class="dropdown-menu notifications">
+                        <div class="topnav-dropdown-header">
+                            <span>Notifications</span>
+                        </div>
+                        <div class="drop-scroll">
+                            <ul class="notification-list">
+                                <li class="notification-message">
+                                    <a href="activities">
+                                        <div class="media">
+                                            <span class="avatar">
+                                                <img alt="John Doe" src="/doctorcss/assets/img/user.jpg"
+                                                    class="img-fluid rounded-circle">
+                                            </span>
+                                            <div class="media-body">
+                                                <p class="noti-details"><span class="noti-title">John Doe</span> added
+                                                    new task <span class="noti-title">Patient appointment booking</span>
+                                                </p>
+                                                <p class="noti-time"><span class="notification-time">4 mins ago</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-message">
+                                    <a href="activities">
+                                        <div class="media">
+                                            <span class="avatar">V</span>
+                                            <div class="media-body">
+                                                <p class="noti-details"><span class="noti-title">Tarah Shropshire</span>
+                                                    changed the task name <span class="noti-title">Appointment booking
+                                                        with payment gateway</span></p>
+                                                <p class="noti-time"><span class="notification-time">6 mins ago</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-message">
+                                    <a href="activities">
+                                        <div class="media">
+                                            <span class="avatar">L</span>
+                                            <div class="media-body">
+                                                <p class="noti-details"><span class="noti-title">Misty Tison</span>
+                                                    added <span class="noti-title">Domenic Houston</span> and <span
+                                                        class="noti-title">Claire Mapes</span> to project <span
+                                                        class="noti-title">Doctor available module</span></p>
+                                                <p class="noti-time"><span class="notification-time">8 mins ago</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-message">
+                                    <a href="activities">
+                                        <div class="media">
+                                            <span class="avatar">G</span>
+                                            <div class="media-body">
+                                                <p class="noti-details"><span class="noti-title">Rolland Webber</span>
+                                                    completed task <span class="noti-title">Patient and Doctor video
+                                                        conferencing</span></p>
+                                                <p class="noti-time"><span class="notification-time">12 mins ago</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-message">
+                                    <a href="activities">
+                                        <div class="media">
+                                            <span class="avatar">V</span>
+                                            <div class="media-body">
+                                                <p class="noti-details"><span class="noti-title">Bernardo Galaviz</span>
+                                                    added new task <span class="noti-title">Private chat module</span>
+                                                </p>
+                                                <p class="noti-time"><span class="notification-time">2 days ago</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="topnav-dropdown-footer">
+                            <a href="activities">View all Notifications</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown d-none d-sm-block">
+                    <a href="javascript:void(0);" id="open_msg_box" class="hasnotifications nav-link"><i
+                            class="fa fa-comment-o"></i> <span
+                            class="badge badge-pill bg-danger float-right">8</span></a>
+                </li>
+                <li class="nav-item dropdown has-arrow">
+                    <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
+                        <span class="user-img"><img class="rounded-circle" src="/doctorcss/assets/img/user.jpg" width="40"
+                                alt="Admin">
+                            <span class="status online"></span></span>
+                        <span>Admin</span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="profile">My Profile</a>
+                        <a class="dropdown-item" href="edit-profile">Edit Profile</a>
+                        <a class="dropdown-item" href="settings">Settings</a>
+                        <a class="dropdown-item" href="login">Logout</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="dropdown mobile-user-menu float-right">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
+                        class="fa fa-ellipsis-v"></i></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="profile">My Profile</a>
+                    <a class="dropdown-item" href="edit-profile">Edit Profile</a>
+                    <a class="dropdown-item" href="settings">Settings</a>
+                    <a class="dropdown-item" href="login">Logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-inner slimscroll">
+                <div id="sidebar-menu" class="sidebar-menu">
+                    <ul>
+                        <li class="menu-title">Main</li>
+                       
+                        <li>
+                            <a href="/Doctor/index"><i class="fa fa-wheelchair"></i> <span>Dashboard</span></a>
+                        </li>
+						   <li>
+                            <a href="/Doctor/patients"><i class="fa fa-wheelchair"></i> <span>Patients</span></a>
+                        </li>
+                        <!-- <li>
+                            <a href="patients"><i class="fa fa-wheelchair"></i> <span>Patients</span></a>
+                        </li> -->
+                        <li>
+                            <a href="/Doctor/appointments"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
+                        </li>
+                      
+						
+                    
+                        <li>
+                            <a href="/Doctor/chat"><i class="fa fa-comments"></i> <span>Chat</span> </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <h4 class="page-title">Precription</h4>
+                    </div>
+                </div>
+                <div class="col-md-12"><button onclick="AddMedicine()"  class="btn btn-primary submit-btn">Add Precription</button>
+                  
+                <div class="row">
+                   
+                    
+                        <div class="table">
+                            <table id="tblCustomers" class="table table-border table-striped custom-table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Doctor Name</th>
+
+                                        <th>Quantity</th>
+                                        <th> Time</th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody id="medicines">
+
+
+                                    <tr>
+                                        <td>
+                                            <div class="form-group form-focus">
+                                                <label class="focus-label">Medicine name</label>
+                                                <input type="text" id="medname" class="form-control floating">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group form-focus">
+                                                <label class="focus-label">Quantity</label>
+                                                <input type="text"  id="Quantity" class="form-control floating" value="10">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <td><input type="checkbox"   id="Morning" name="Morning"  class="rounded-circle m-r-5" alt=""> Morning</td>
+                                            <td><input type="checkbox" id="Night" class="rounded-circle m-r-5" alt=""> Night</td>
+                                            <td><input type="checkbox" id="Evening"  class="rounded-circle m-r-5" alt=""> Evening</td>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            <div class="m-t-20 text-center">
+                                <button onclick="getresult()"   class="btn btn-primary submit-btn">Save</button>
+                            </div>
+                        </div>
+                    </div>
+
+            
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="sidebar-overlay" data-reff=""></div>
+    <script src="/doctorcss/assets/js/jquery-3.2.1.min.js"></script>
+    <script src="/doctorcss/assets/js/popper.min.js"></script>
+    <script src="/doctorcss/assets/js/bootstrap.min.js"></script>
+    <script src="/doctorcss/assets/js/jquery.slimscroll.js"></script>
+    <script src="/doctorcss/assets/js/select2.min.js"></script>
+    <script src="/doctorcss/assets/js/moment.min.js"></script>
+    <script src="/doctorcss/assets/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="/doctorcss/assets/js/app.js"></script>
+    <script src="/doctorcss/assets/js/app.js"></script>
+    <script>
+        $(function () {
+            $('#datetimepicker3').datetimepicker({
+                format: 'LT'
+
+            });
+        });
+    </script>
+    <script>
+        $(function () {
+            $('#datetimepicker4').datetimepicker({
+                format: 'LT'
+
+            });
+        });
+    </script>
+</body>
+
+<!-- edit-schedule24:07-->
+
+</html>
+
+
+<script>
+    
+   function AddMedicine(){
+
+
+let element = `  <tr>
+                                        <td>
+                                            <div class="form-group form-focus">
+                                                <label class="focus-label">Medicine name</label>
+                                                <input type="text" id="medname" name ="Medname" class="form-control floating" value="paracetamol">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group form-focus">
+                                                <label class="focus-label">Quantity</label>
+                                                <input type="text" id="Quantity" class="form-control floating" value="10">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span id="time">
+                                        <td><input type="checkbox"  id="Morning"  class="rounded-circle m-r-5" alt=""> Morning</td>
+                                        <td><input type="checkbox" id="Night" class="rounded-circle m-r-5" alt=""> Night</td>
+                                        <td><input type="checkbox" id="Evening"  class="rounded-circle m-r-5" alt=""> Evening</td>
+                                    </span>
+                                        </td>
+                                    </tr>
+                                    `
+
+
+    const box = document.getElementById('medicines');
+box.innerHTML +=element
+
+   }
+
+
+function getresult(){
+    console.log("clck")
+const medname_full = document.querySelectorAll('[id="medname"]');
+const Medicines_Name = [...medname_full].map(input => input.value);
+
+
+const Quantity_full = document.querySelectorAll('[id="Quantity"]');
+const Quantity_Name = [...Quantity_full].map(input => input.value);
+
+
+
+const Morning_full = document.querySelectorAll('[id="Morning"]');
+const Mornig_time = [...Morning_full].map(input => input.checked );
+
+
+const Nigth_full = document.querySelectorAll('[id="Night"]');
+const Night_time = [...Nigth_full].map(input => input.checked );
+
+const Evening_full = document.querySelectorAll('[id="Evening"]');
+const Evening_time = [...Evening_full].map(input => input.checked );
+
+$.ajax({
+            url: "http://localhost:5000/Doctor/precription",
+            method: "post",
+            dataType: "JSON",
+            data:({
+                Medicines_Name:JSON.stringify(Medicines_Name) , 
+                Quantity_Name:JSON.stringify(Quantity_Name) , 
+                Mornig_time:JSON.stringify(Mornig_time) , 
+                Night_time:JSON.stringify(Night_time) , 
+                Evening_time:JSON.stringify(Evening_time) ,
+                Patient_data:JSON.stringify(`<%=MainData%>`)   
+              
+                
+            })
+            ,
+            success: function (data) {
+            if(data.msg==200){
+                Swal.fire({
+            title: "Precription Success",
+         
+            icon: "success"
+          });
+
+
+
+
+
+            }
+
+            }
+
+        })
+
+
+
+
+
+
+
+}
+
+
+</script>

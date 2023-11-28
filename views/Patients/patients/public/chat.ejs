@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- chat23:28-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="shortcut icon" type="image/x-icon" href="/doctorcss/assets/img/favicon.ico">
+    <title>Preclinic - Medical & Hospital - Bootstrap 4 Admin Template</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/doctorcss/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/doctorcss/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/doctorcss/assets/css/style.css">
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+
+    <!-- <script defer src="http://localhost:5000/socket.io/socket.io.js"></script>
+    <script src="/socket.io/socket.io.js"></script> -->
+    <!--[if lt IE 9]>
+
+		<script src="/doctorcss/assets/js/html5shiv.min.js"></script>
+		<script src="/doctorcss/assets/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+    <div class="main-wrapper">
+
+
+
+        <div class="header">
+            <div class="header-left">
+                <a href="index" class="logo">
+                    <img src="/doctorcss/assets/img/logo.png" width="35" height="35" alt=""> <span>Preclinic</span>
+                </a>
+            </div>
+            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
+           
+           
+        </div>
+
+
+
+
+
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-inner slimscroll">
+                <div class="sidebar-menu"   >
+                    <ul id="chat-list">
+                        <li>
+                            <a href="index"><i class="fa fa-home back-icon"></i> <span>Back to Home</span></a>
+                        </li>
+                       
+                        <li class="menu-title">Direct Chats <a href="#" class="add-user-icon" data-toggle="modal" data-target="#add_chat_user"><i class="fa fa-plus"></i></a></li>
+              
+                       
+                        <li>
+                            <a id ="123" onclick="getid(this)"><span class="chat-avatar-sm user-img"><img src="/doctorcss/assets/img/user.jpg" alt="" class="rounded-circle"><span class="status online"></span></span> John Doe <span class="badge badge-pill bg-danger float-right">1</span></a>
+                        </li>
+                        <li>
+                            <a onclick="getid(this)"><span class="chat-avatar-sm user-img"><img src="/doctorcss/assets/img/user.jpg" alt="" class="rounded-circle"><span class="status offline"></span></span> Richard Miles <span class="badge badge-pill bg-danger float-right">18</span></a>
+                        </li>
+                        <li>
+                            <a onclick="getid(this)"><span class="chat-avatar-sm user-img"><img src="/doctorcss/assets/img/user.jpg" alt="" class="rounded-circle"><span class="status away"></span></span> John Smith</a>
+                        </li>
+                        <li class="active">
+                            <a onclick="getid(this)"><span class="chat-avatar-sm user-img"><img src="/doctorcss/assets/img/user.jpg" alt="" class="rounded-circle"><span class="status online"></span></span> Jennifer <span class="badge badge-pill bg-danger float-right">108</span></a>
+                        </li>
+             
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="page-wrapper">
+            <div class="chat-main-row">
+                <div class="chat-main-wrapper">
+                    <div class="col-lg-9 message-view chat-view">
+                        <div class="chat-window">
+                            <div class="fixed-header">
+                                <div class="navbar">
+                                    <div class="user-details mr-auto">
+                                        <div class="float-left user-img m-r-10">
+                                            <a href="profile" title="Jennifer Robinson"><img id="userprofile"  alt="" class="w-40 rounded-circle"><span class="status online"></span></a>
+                                        </div>
+                                        <div class="user-info float-left">
+                                            <a href="profile"  id="userchatname"><span class="font-bold"></span> <i class="typing-text">Typing...</i></a>
+                                            <span class="last-seen">Last seen today at 7:50 AM</span>
+                                        </div>
+                                    </div>
+                                   
+                                    <ul class="nav custom-menu">
+                                      
+                                     
+                                      
+                                       
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="chat-contents">
+                                <div class="chat-content-wrap">
+                                    <div class="chat-wrap-inner">
+                                        <div class="chat-box">
+
+                                            <div class="chats" id="chat-message">                                                                                                                           
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chat-footer">
+                                <div class="message-bar">
+                                   
+                                    <div class="message-inner">
+                                        <a class="link attach-icon" href="#" data-toggle="modal" data-target="#drag_files"><img src="/doctorcss/assets/img/attachment.png" alt=""></a>
+                                        <div class="message-area">
+                                            <div class="input-group">
+                                                <textarea class="form-control" id="message" placeholder="Type message..."></textarea>
+                                                <span class="input-group-append">
+													<button onclick="SendMessage()" class="btn btn-primary" type="button"><i class="fa fa-send"></i></button>
+												</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+            <div id="drag_files" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title">Drag and drop files upload</h3>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="js-upload-form">
+                            
+                           
+                                   
+                                    <label for="formFileLg" class="form-label">Choose File</label>
+                                    <input class="form-control form-control-lg" id="formFileLg" type="file" />
+                                    
+                           
+        
+                                
+                            </form>
+                            <div class="m-t-30 text-center">
+                                <button class="btn btn-primary submit-btn">Add to upload</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="add_group" class="modal fade">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title">Create a group</h3>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Groups are where your team communicates. They’re best when organized around a topic — #leads, for example.</p>
+                            <form>
+                                <div class="form-group">
+                                    <label>Group Name <span class="text-danger">*</span></label>
+                                    <input class="form-control" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label>Send invites to: <span class="text-muted-light">(optional)</span></label>
+                                    <input class="form-control" type="text">
+                                </div>
+                                <div class="m-t-50 text-center">
+                                    <button class="btn btn-primary submit-btn">Create Group</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="add_chat_user" class="modal fade " role="dialog">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title">Create Chat Group</h3>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="input-group m-b-30">
+                                <input placeholder="Search to start a chat" class="form-control search-input" id="btn-input" type="text">
+                                <span class="input-group-append">
+									<button class="btn btn-primary">Search</button>
+								</span>
+                            </div>
+                            <div>
+                                <h5>Recent Conversations</h5>
+                                <ul class="chat-user-list">
+                                    <li>
+                                        <a href="#">
+                                            <div class="media">
+												<span class="avatar align-self-center">J</span>
+                                            <div class="media-body align-self-center text-nowrap">
+                                                <div class="user-name">Jeffery Lalor</div>
+                                                <span class="designation">Team Leader</span>
+                                            </div>
+                                            <div class="text-nowrap align-self-center">
+                                                <div class="online-date">1 day ago</div>
+                                            </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="media ">
+												<span class="avatar align-self-center">B</span>
+												<div class="media-body align-self-center text-nowrap">
+													<div class="user-name">Bernardo Galaviz</div>
+													<span class="designation">Web Developer</span>
+												</div>
+												<div class="align-self-center text-nowrap">
+													<div class="online-date">3 days ago</div>
+												</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="media">
+												<span class="avatar align-self-center">
+													<img src="/doctorcss/assets/img/user.jpg" alt="John Doe">
+												</span>
+												<div class="media-body text-nowrap align-self-center">
+													<div class="user-name">John Doe</div>
+													<span class="designation">Web Designer</span>
+												</div>
+												<div class="align-self-center text-nowrap">
+													<div class="online-date">7 months ago</div>
+												</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="m-t-50 text-center">
+                                <button class="btn btn-primary submit-btn">Create Group</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="share_files" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title">Share File</h3>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="files-share-list">
+                                <div class="files-cont">
+                                    <div class="file-type">
+                                        <span class="files-icon"><i class="fa fa-file-pdf-o"></i></span>
+                                    </div>
+                                    <div class="files-info">
+                                        <span class="file-name text-ellipsis">AHA Selfcare Mobile Application Test-Cases.xls</span>
+                                        <span class="file-author"><a href="#">Bernardo Galaviz</a></span> <span class="file-date">May 31st at 6:53 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Share With</label>
+                                <input class="form-control" type="text">
+                            </div>
+                            <div class="m-t-50 text-center">
+                                <button class="btn btn-primary submit-btn">Share</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<div class="notification-box">
+                <div class="msg-sidebar notifications msg-noti">
+                    <div class="topnav-dropdown-header">
+                        <span>Messages</span>
+                    </div>
+                    <div class="drop-scroll msg-list-scroll" id="msg_list">
+                        <ul class="list-box">
+                            <li>
+                                <a onclick="getid()">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">R</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Richard Miles </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a onclick="getid()">
+                                    <div class="list-item new-message">
+                                        <div class="list-left">
+                                            <span class="avatar">J</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">John Doe</span>
+                                            <span class="message-time">1 Aug</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a onclick="getid()">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">T</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Tarah Shropshire </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a onclick="getid()">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">M</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Mike Litorus</span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a onclick="getid()">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">C</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Catherine Manseau </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a onclick="getid()">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">D</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Domenic Houston </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a onclick="getid()">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">B</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Buster Wigton </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a onclick="getid()">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">R</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Rolland Webber </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a onclick="getid()">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">C</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Claire Mapes </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a onclick="getid()">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">M</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Melita Faucher</span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a onclick="getid()">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">J</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Jeffery Lalor</span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a onclick="getid()">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">L</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Loren Gatlin</span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a onclick="getid()">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">T</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Tarah Shropshire</span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="topnav-dropdown-footer">
+                        <a onclick="getid()">See all messages</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-overlay" data-reff=""></div>
+    <script src="/doctorcss/assets/js/jquery-3.2.1.min.js"></script>
+	<script src="/doctorcss/assets/js/popper.min.js"></script>
+    <script src="/doctorcss/assets/js/bootstrap.min.js"></script>
+    <script src="/doctorcss/assets/js/jquery.slimscroll.js"></script>
+    <script src="/doctorcss/assets/js/app.js"></script>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script> 
+
+function formatAMPM(date) {
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var ampm = hours >= 12 ? 'pm' : 'am';
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+  minutes = minutes < 10 ? '0'+minutes : minutes;
+  var strTime = hours + ':' + minutes + ' ' + ampm;
+  2
+
+  let day = date.getDate();
+let month = date.getMonth() + 1;
+let year = date.getFullYear();
+
+// This arrangement can be altered based on how we want the date's format to appear.
+let currentDate = `${day}-${month}-${year}`;
+
+
+
+  return [strTime , currentDate ];
+}
+
+
+
+
+
+//socket connection 
+ let socket = io(); 
+ let Sender_id;
+ let Receiver_id;
+//  load chatting list 
+$(document).ready(function () {
+        load_data();
+    });
+    function load_data() {
+        $.ajax({
+            url: "http://localhost:5000/patients/public/getallappointment",
+            method: "get",
+            dataType: "JSON",
+            success: function (data) {
+ console.log("data" , data)
+                var html = '';
+
+                html+=`
+                <li>
+                            <a href="index"><i class="fa fa-home back-icon"></i> <span>Back to Home</span></a>
+                        </li>
+                       
+                        <li class="menu-title">Direct Chats <a href="#" class="add-user-icon" data-toggle="modal" data-target="#add_chat_user"><i class="fa fa-plus"></i></a></li>
+              
+`
+
+                for (var count = 0; count < data.length; count++) {
+          
+                    Receiver_id= data[count].D_id
+                    Sender_id=data[count].P_id          
+
+                html +=`
+
+                <li>
+                            <a pid=`+ data[count].P_id+` did=`+ data[count].D_id+` onclick="getid(`+ data[count].P_id+`, `+data[count].D_id +`)"><span class="chat-avatar-sm user-img"><img src=`+ data[count].photo +` alt="" class="rounded-circle"><span class="status offline"></span></span> `+ data[count].f_name + "  "+data[count].l_name  +` <span class="badge badge-pill bg-danger float-right">18</span></a>
+                </li>
+                
+                    `
+        }
+
+                $('#chat-list').html(html);
+                socket.emit('getchat', {Receiver_id: Receiver_id,Sender_id:Sender_id , profile:"doctor"}); 
+                
+            }
+        });
+    }
+
+
+
+  
+   
+
+ //SendMessage
+//   function SendMessage(){
+//     console.log("call from own ")
+// let data ={
+//     Sender_id : S_id , 
+//     Receiver_id : R_id, 
+//     clients:true
+// }
+
+//  let Message = $("#message").val();
+//  if(Message!=""){
+//     let time_date = formatAMPM(new Date)
+//     data.message=Message
+//     data.time=time_date[0]
+//     data.date=time_date[1]
+    
+//     document.getElementById('message').value='' ; 
+
+// // send data to server 
+
+// socket.emit('send_Messsage_server',data);
+
+// socket.emit('send_TO_server',{Patient_id:data.Sender_id , Doctor_id:data.Receiver_id , clients:true}); 
+
+
+
+    
+//  }else{
+//      // empty message will not send
+//     console.log("empty" , Message)
+//  }
+
+//   }
+
+
+function getid(p,d){
+
+    Receiver_id= d
+        Sender_id=p 
+
+let data= {
+      Sender_id : p , 
+      Receiver_id : d,
+      clients:"hello"  
+}
+let time_date = formatAMPM(new Date) 
+
+ data.time=time_date[0]
+ data.date=time_date[1] 
+ socket.emit('getchat', {Receiver_id: d,Sender_id:p,profile:"doctor" }); 
+ socket.emit('send message', data); 
+// socket.emit('send_TO_server',{Patient_id:p , Doctor_id:d , clients:false });     
+}
+
+
+socket.on("send message", (chat) => { 
+	console.log(" response from server " , chat)
+	}); 
+
+    socket.on("sendchat", (userprofile , message) => { 
+	console.log(" response from server " , userprofile, message )
+    document.getElementById("userprofile").src=userprofile.photo
+    document.getElementById("userchatname").textContent=userprofile.f_name + " " + userprofile.l_name
+
+
+    let msg =''
+for(let j=0 ;j<message.length ;j++){
+    if( Sender_id == message[j].Sender_Id){
+ msg+=`
+ <div class="chat chat-right">
+                                                <div class="chat-body">
+                                                        <div class="chat-bubble">
+                                                            <div class="chat-content">
+                                                                <p id="otherend_id">`+message[j].Message +`</p>
+                                                               
+                                                                <span class="chat-time">`+ message[j].date+ "    " +message[j].time +`</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+ `
+
+    }else{
+
+msg+=`
+<div class="chat chat-left">
+<div class="chat-body">
+    <div class="chat-bubble">
+        <div class="chat-content">
+            <p>` +message[j].Message +`</p>
+          
+            <span class="chat-time">` + message[j].date+ "    " +message[j].time +`</span>
+        </div>
+    </div>
+</div>
+</div> 
+
+
+
+`
+
+
+    }
+
+}
+
+$('#chat-message').html(msg);
+
+
+
+	});
+
+
+    function SendMessage(){
+    let Message = $("#message").val();
+// receiver -->  kisko bhejna hai 
+//sender --> doctor id 
+if(Message!=""){
+
+    let time_date = formatAMPM(new Date)
+
+ 
+
+
+    let Message_data={
+        Receiver_id :Receiver_id,
+        Sender_id:Sender_id,
+        Message:Message,
+        time:time_date[0] ,
+        date:time_date[1]
+
+    }
+    console.log(Message_data)
+    socket.emit('message', Message_data); 
+
+}else{
+console.log("empty")
+}
+
+
+
+}
+
+socket.on("sendmessage", (message) => { 
+	console.log(" message from server " , message)
+
+    let msg =''
+for(let j=0 ;j<message.length ;j++){
+    if( Sender_id == message[j].Sender_Id){
+ msg+=`
+ <div class="chat chat-right">
+                                                <div class="chat-body">
+                                                        <div class="chat-bubble">
+                                                            <div class="chat-content">
+                                                                <p id="otherend_id">`+message[j].Message +`</p>
+                                                               
+                                                                <span class="chat-time">`+ message[j].date+ "    " +message[j].time +`</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+ `
+
+    }else{
+
+msg+=`
+<div class="chat chat-left">
+<div class="chat-body">
+    <div class="chat-bubble">
+        <div class="chat-content">
+            <p>` +message[j].Message +`</p>
+          
+            <span class="chat-time">` + message[j].date+ "    " +message[j].time +`</span>
+        </div>
+    </div>
+</div>
+</div> 
+
+
+
+`
+
+
+    }
+
+}
+
+$('#chat-message').html(msg);
+
+
+
+
+
+
+	});
+
+
+
+
+
+</script> 
+
+<!-- chat23:29-->
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>Livedoc | Landing, Responsive &amp; Business Templatee</title>
+
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="/patientscss/assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/patientscss/assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/patientscss/assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/patientscss/assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="/patientscss/assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="/patientscss/assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="/patientscss/assets/css/theme.css" rel="stylesheet" />
+
+  </head>    
+
+
+  <body>
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
+        <div class="container"><a class="navbar-brand" href="index"><img src="/patientscss/assets/img/gallery/logo.png" width="118" alt="logo" /></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
+          <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
+                <li class="nav-item px-2"><a class="nav-link" href="index">Dashboard</a></li>
+              <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="myappointments">Appointment's </a></li>
+         
+             
+              <li class="nav-item px-2"><a class="nav-link" href="chat">Chat </a></li>
+             
+            </ul><a class="btn btn-sm btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4" href="myprofile">My Profile </a>
+          </div>
+        </div>
+      </nav>
+      <section class="py-xxl-10 pb-0" id="home">
+        <div class="bg-holder bg-size" style="background-image:url(/patientscss/assets/img/gallery/hero-bg.png);background-position:top center;background-size:cover;">
+        </div>
+      
+
+      <section>
+        <div class="bg-holder bg-size" style="background-image:url(/patientscss/assets/img/gallery/dot-bg.png);background-position:top left;background-size:auto;">
+        </div>
+        <!--/.bg-holder-->
+
+        <div class="container">
+          <div class="row">
+
+     <% console.log("patients ", result)%>
+
+
+
+
+
+
+
+     <%
+     for(let j=0;j<result.length;j++){
+let hr = "../../../../public/upload_pdf/"+result[j].Precription_name
+%>
+
+<div class="col-12 col-sm-12 m-1  ">
+    <div class="card card-1">
+        <div class="card-body">
+          
+            <div class="row">
+
+                <div class="col">
+                    <div class="card card-2">
+                        <div class="card-body">
+                            <div class="media">
+                                <div class="sq align-self-center "> <img class="img-fluid  my-auto align-self-center mr-2 mr-md-4 pl-0 p-0 m-0" src=<%= result[j].photo %> width="135" height="135" /> </div>
+                                <div class="media-body my-auto text-right">
+                                    <div class="row  my-auto flex-column flex-md-row">
+                                        <div class="col my-auto"> <h6 class="mb-0"> Jack Jacs</h6>  </div>
+                                        <div class="col-auto my-auto"> <small> </small></div>
+                                        <div class="col my-auto"><h6 class="mb-0"> <button class="btn  btn-primary rounded-pill" role="button">Download </button>
+                                         <!-- <a href="../../../../public/upload_pdf/1700845222635.pdf" >try me</a> -->
+                                         <a href=<%=hr%> download>try me</a>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                     
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>   
+        </div> 
+
+<%
+     }
+     
+     %>
+
+
+            </div>
+          </div>
+        </div>
+      </section>
+     
+      <section class="py-0 bg-secondary">
+        <div class="bg-holder opacity-25" style="background-image:url(/patientscss/assets/img/gallery/dot-bg.png);background-position:top left;margin-top:-3.125rem;background-size:auto;">
+        </div>
+        <!--/.bg-holder-->
+
+       
+
+        <!-- ============================================-->
+        <!-- <section> begin ============================-->
+        <section class="py-0 bg-primary">
+
+          <div class="container">
+            <div class="row justify-content-md-between justify-content-evenly py-4">
+              <div class="col-12 col-sm-8 col-md-6 col-lg-auto text-center text-md-start">
+                <p class="fs--1 my-2 fw-bold text-200">All rights Reserved &copy; Your Company, 2021</p>
+              </div>
+            
+            </div>
+          </div>
+          <!-- end of .container-->
+
+        </section>
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
+
+
+      </section>
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="vendors/@popperjs/popper.min.js"></script>
+    <script src="vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="vendors/is/is.min.js"></script>
+    <script src="https://scripts.sirv.com/sirvjs/v3/sirv.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="vendors/fontawesome/all.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100&amp;display=swap" rel="stylesheet">
+  </body>
+
+</html>
